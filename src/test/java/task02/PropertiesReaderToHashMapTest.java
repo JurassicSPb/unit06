@@ -25,7 +25,6 @@ public class PropertiesReaderToHashMapTest {
     public void testThatWeCanCreateNewHashMap() {
         HashMap <String, String> emptyMap = readerToHashMap.getPropertiesToHashMap("", "");
         assertThat(emptyMap, is(notNullValue()));
-        
     }
 
     @Test
@@ -49,7 +48,24 @@ public class PropertiesReaderToHashMapTest {
     }
 
     @Test
-    public void addKeyThatAlreadyExistsTest(){
+    public void testThatWeCanGetKeyByValue(){
 
+    }
+
+    @Test
+    public void addKeyThatAlreadyExistsTest(){
+        readerToHashMap.getPropertiesToHashMap("test", "");
+        readerToHashMap.getPropertiesToHashMap("test", "test_ru");
+
+//        assertThat();
+    }
+
+    @Test
+    public void classLogicTest(){
+        readerToHashMap.getPropertiesToHashMap("test_en_US", "en_US");
+        readerToHashMap.showAllProperties();
+
+        System.out.println();
+        System.out.println(readerToHashMap.getValueByKey("1"));
     }
 }
