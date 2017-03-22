@@ -15,13 +15,13 @@ import static org.junit.Assert.*;
  * Created by Мария on 22.03.2017.
  */
 public class PropertiesReaderToHashMapTest {
-    PropertiesReaderToHashMap readerToHashMap;
+    private PropertiesReaderToHashMap readerToHashMap;
 
     @Before
     public void init() {
         readerToHashMap = new PropertiesReaderToHashMap();
     }
-    
+
     @Test
     public void testThatWeCanCreateNewHashMap() {
         HashMap<String, String> emptyMap = readerToHashMap.getPropertiesToHashMap("", "");
@@ -50,6 +50,12 @@ public class PropertiesReaderToHashMapTest {
 
     @Test
     public void MissingKeyTest() throws Exception {
+        readerToHashMap.getPropertiesToHashMap("test_en_US", "en_US");
+
+        String valueByKey = readerToHashMap.getValueByKey("888");
+
+        assertThat(valueByKey, is("Key not found"));
+
 
     }
 
